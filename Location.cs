@@ -5,7 +5,7 @@ namespace WispersInTheHollow
     public string Name { get; set; }
     public string Description { get; set; }
     private readonly List<Item> Items = [];
-    private readonly List<Location> Exits = [];
+    private readonly Dictionary<string, Location> Exits = [];
 
     public Location(string name, string description)
     {
@@ -17,9 +17,9 @@ namespace WispersInTheHollow
     {
       Items.Add(item);
     }
-    public void AddExit(Location exit)
+    public void AddExit(string direction, Location exit)
     {
-      Exits.Add(exit);
+      Exits.Add(direction, exit);
     }
   }
 }

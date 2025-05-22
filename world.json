@@ -1,0 +1,79 @@
+{
+  "locations": [
+    {
+      "id": "starting_glade",
+      "name": "Starting Glade",
+      "description": "You stand in a quiet glade surrounded by looming trees. Fog curls along the ground.",
+      "exits": {
+        "north": "forest_path"
+      },
+      "items": []
+    },
+    {
+      "id": "forest_path",
+      "name": "Forest Path",
+      "description": "A narrow path winds between mossy trees. You hear distant whispers.",
+      "exits": {
+        "south": "starting_glade",
+        "north": "foggy_crossroads",
+        "west": "abandoned_shack"
+      },
+      "items": ["rusty_lantern"]
+    },
+    {
+      "id": "abandoned_shack",
+      "name": "Abandoned Shack",
+      "description": "Rotting wood and cobwebs. Something glints under the floorboards.",
+      "exits": {
+        "east": "forest_path"
+      },
+      "items": ["tower_key"]
+    },
+    {
+      "id": "foggy_crossroads",
+      "name": "Foggy Crossroads",
+      "description": "A misty clearing where paths meet. A locked gate blocks the way north.",
+      "exits": {
+        "south": "forest_path",
+        "north": "ancient_gate",
+        "east": "old_watchtower"
+      },
+      "items": []
+    },
+    {
+      "id": "old_watchtower",
+      "name": "Old Watchtower",
+      "description": "A crumbling tower. Too dark to enter without light.",
+      "exits": {
+        "west": "foggy_crossroads"
+      },
+      "items": ["small_key"]
+    },
+    {
+      "id": "ancient_gate",
+      "name": "Ancient Gate",
+      "description": "The gate is old and bound with iron. A large lock holds it shut.",
+      "exits": {
+        "south": "foggy_crossroads"
+      },
+      "items": []
+    }
+  ],
+  "items": [
+    {
+      "id": "rusty_lantern",
+      "name": "Rusty Lantern",
+      "description": "It's old and dusty, but might still work."
+    },
+    {
+      "id": "small_key",
+      "name": "Small key",
+      "description": "It may be small, but it does the job."
+    },
+    {
+      "id": "tower_key",
+      "name": "Tower key",
+      "description": "Oh great. Another pocket. I used to live in a mahogany drawer."
+    }
+  ]
+}
