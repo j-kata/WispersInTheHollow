@@ -1,0 +1,25 @@
+namespace WispersInTheHollow
+{
+  internal class Location
+  {
+    public string Name { get; set; }
+    public string Description { get; set; }
+    private readonly List<Item> Items = [];
+    private readonly List<Location> Exits = [];
+
+    public Location(string name, string description)
+    {
+      Name = name;
+      Description = description;
+    }
+
+    public void AddItem(Item item)
+    {
+      Items.Add(item);
+    }
+    public void AddExit(Location exit)
+    {
+      Exits.Add(exit);
+    }
+  }
+}
