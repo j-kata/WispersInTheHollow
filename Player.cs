@@ -10,9 +10,14 @@ namespace WispersInTheHollow
       Location = location;
     }
 
-    public void MoveTo(Location location)
+    public bool Move(string direction)
     {
-      Location = location;
+      var exit = Location.GetExit(direction);
+      if (exit == null)
+        return false;
+      
+      Location = exit;
+      return true;
     }
 
     public void PickUp(Item item)

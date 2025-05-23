@@ -1,5 +1,3 @@
-using System.Text;
-
 namespace WispersInTheHollow
 {
   internal class Location
@@ -26,12 +24,17 @@ namespace WispersInTheHollow
 
     public string[] AvailableDirections()
     {
-      return [..Exits.Keys];
+      return [.. Exits.Keys];
     }
 
     public IEnumerable<Item> AvailableItems()
     {
       return Items;
+    }
+
+    public Location? GetExit(string direction)
+    {
+      return Exits.TryGetValue(direction, out var location) ? location : null;
     }
   }
 }

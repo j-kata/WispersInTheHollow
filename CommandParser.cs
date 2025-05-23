@@ -1,14 +1,21 @@
-using System.Data;
+using WispersInTheHollow.Command;
 
 namespace WispersInTheHollow
 {
   internal static class CommandParser
   {
-    public static Command? Parse(string command)
+    public static IExecutable Parse(string input)
     {
-      var input = command.Split(" ");
+      string[] data = input.Split(" ");
+      string command = data[0].ToLower();
 
-      return null; //new Command();
+      switch (command)
+      {
+        case "go":
+          return new MoveCommand(data[1]);
+        default:
+          return null;
+      }
     }
   }
 }
