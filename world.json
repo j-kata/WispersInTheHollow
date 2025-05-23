@@ -63,17 +63,20 @@
     {
       "id": "rusty_lantern",
       "name": "Rusty Lantern",
-      "description": "It's old and dusty, but might still work."
+      "description": "It's old and dusty, but might still work.",
+      "hint": "Something glints faintly beneath the leaves by the path."
     },
     {
       "id": "small_key",
       "name": "Small key",
-      "description": "It may be small, but it does the job."
+      "description": "It may be small, but it does the job.",
+      "hint": "A faint metallic smell lingers near the broken desk."
     },
     {
       "id": "tower_key",
       "name": "Tower key",
-      "description": "Oh great. Another pocket. I used to live in a mahogany drawer."
+      "description": "Oh great. Another pocket. I used to live in a mahogany drawer.",
+      "hint": "Something catches the light deep in the darkness below."
     }
   ]
 }

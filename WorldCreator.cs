@@ -5,11 +5,11 @@ namespace WispersInTheHollow
   internal static class WorldCreator
   {
     private record WorldData(List<LocationData> Locations, List<ItemData> Items);
-    private record ItemData(string Id, string Name, string Description);
+    private record ItemData(string Id, string Name, string Description, string Hint);
     private record LocationData(string Id, string Name, string Description, Dictionary<string, string> Exits, List<string> Items);
 
     private static JsonSerializerOptions jsonSerializerOptions = new() { PropertyNameCaseInsensitive = true };
-    public static Location? StartLocation()
+    public static Location StartLocation()
     {
       var worldData = LoadWorldData("world.json");
 
@@ -34,7 +34,7 @@ namespace WispersInTheHollow
 
     private static Dictionary<string, Item> CreateItems(List<ItemData> itemData)
     {
-      return itemData.Select(item => (item.Id, new Item(item.Name))).ToDictionary();
+      return itemData.Select(item => (item.Id, new Item(item.Name, item.Description, item.Hint))).ToDictionary();
     }
 
     private static Dictionary<string, Location> CreateLocations(List<LocationData> locData)
