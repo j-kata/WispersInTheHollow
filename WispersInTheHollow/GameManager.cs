@@ -10,7 +10,7 @@ namespace WispersInTheHollow
     {
       try
       {
-        var startLocation = WorldCreator.Generate();
+        var startLocation = new WorldCreator().StartLocation();
         Player = new Player(startLocation);
         IsGameOn = true;
       }

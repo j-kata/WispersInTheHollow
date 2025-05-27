@@ -3,10 +3,10 @@ namespace WispersInTheHollow
 {
   internal class Player
   {
-    public Location Location { get; private set; }
+    public IReadOnlyLocation Location { get; private set; }
     private readonly List<Item> inventory = [];
 
-    public Player(Location location)
+    public Player(IReadOnlyLocation location)
     {
       Location = location;
     }

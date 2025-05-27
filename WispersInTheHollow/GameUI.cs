@@ -4,7 +4,7 @@ namespace WispersInTheHollow
 {
   internal static class GameUI
   {
-    public static void PrintLocation(Location location)
+    public static void PrintLocation(IReadOnlyLocation location)
     {
       Console.WriteLine($"== {location.Name} ==");
       Console.WriteLine(location.Description);
