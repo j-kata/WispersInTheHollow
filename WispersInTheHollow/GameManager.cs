@@ -1,3 +1,5 @@
+using WispersInTheHollow.World;
+
 namespace WispersInTheHollow
 {
   internal static class GameManager

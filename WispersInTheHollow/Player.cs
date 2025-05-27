@@ -1,3 +1,4 @@
+using WispersInTheHollow.World;
 namespace WispersInTheHollow
 {
   internal class Player
@@ -15,7 +16,7 @@ namespace WispersInTheHollow
       var exit = Location.GetExit(direction);
       if (exit == null)
         return false;
-      
+
       Location = exit;
       return true;
     }

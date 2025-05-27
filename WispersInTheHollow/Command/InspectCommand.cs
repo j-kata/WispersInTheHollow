@@ -1,3 +1,4 @@
+using WispersInTheHollow.World;
 namespace WispersInTheHollow.Command
 {
   internal class InspectCommand : ICommand
