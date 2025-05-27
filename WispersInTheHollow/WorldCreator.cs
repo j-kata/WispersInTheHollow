@@ -9,9 +9,9 @@ namespace WispersInTheHollow
     private record LocationData(string Id, string Name, string Description, Dictionary<string, string> Exits, List<string> Items);
 
     private static JsonSerializerOptions jsonSerializerOptions = new() { PropertyNameCaseInsensitive = true };
-    public static Location StartLocation()
+    public static Location Generate(string fileName = "world.json")
     {
-      var worldData = LoadWorldData("world.json");
+      var worldData = LoadWorldData(fileName);
 
       var items = CreateItems(worldData.Items);
       var locations = CreateLocations(worldData.Locations);

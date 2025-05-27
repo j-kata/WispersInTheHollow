@@ -8,15 +8,15 @@ namespace WispersInTheHollow
     {
       try
       {
-        var location = WorldCreator.StartLocation();
-        Player = new Player(location);
+        var startLocation = WorldCreator.Generate();
+        Player = new Player(startLocation);
         IsGameOn = true;
-        GameLoop();
       }
       catch (Exception ex)
       {
         Console.WriteLine($"Failed to start the game: {ex.Message}");
       }
+      GameLoop();
     }
 
     private static void GameLoop()
