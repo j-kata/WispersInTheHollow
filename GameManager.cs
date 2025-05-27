@@ -26,7 +26,7 @@ namespace WispersInTheHollow
         GameUI.PrintLocation(Player.Location);
         var input = Console.ReadLine() ?? string.Empty;
 
-        IExecutable command = CommandParser.Parse(input);
+        ICommand? command = CommandParser.Parse(input);
 
         if (command != null)
         {

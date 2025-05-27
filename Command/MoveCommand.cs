@@ -1,6 +1,6 @@
 namespace WispersInTheHollow.Command
 {
-  internal class MoveCommand : IExecutable
+  internal class MoveCommand : ICommand
   {
     public string Direction { get; private set; }
     public MoveCommand(string direction)

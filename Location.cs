@@ -32,6 +32,19 @@ namespace WispersInTheHollow
       return Items;
     }
 
+    public IEnumerable<Item> HiddenItems()
+    {
+      return Items.Where(item => !item.IsDiscovered);
+    }
+
+    public Item? Inspect(string itemName)
+    {
+      var item = HiddenItems().FirstOrDefault(item => item.Hint.Contains(itemName));
+      if (item != null) item.IsDiscovered = true;
+
+      return item;
+    }
+
     public Location? GetExit(string direction)
     {
       return Exits.TryGetValue(direction, out var location) ? location : null;
