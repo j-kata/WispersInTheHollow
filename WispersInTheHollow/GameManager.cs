@@ -1,4 +1,6 @@
+using WispersInTheHollow.Helpers;
 using WispersInTheHollow.World;
+using WispersInTheHollow.World.Helpers;
 
 namespace WispersInTheHollow
 {
@@ -6,6 +8,7 @@ namespace WispersInTheHollow
   {
     private static Player Player { get; set; }
     private static bool IsGameOn { get; set; }
+
     public static void Start()
     {
       try
@@ -16,7 +19,7 @@ namespace WispersInTheHollow
       }
       catch (Exception ex)
       {
-        Console.WriteLine($"Failed to start the game: {ex.Message}");
+        GameUI.Print($"Failed to start the game: {ex.Message}");
       }
       GameLoop();
     }
@@ -25,8 +28,10 @@ namespace WispersInTheHollow
     {
       while (IsGameOn)
       {
-        GameUI.PrintLocation(Player.Location);
-        var input = Console.ReadLine() ?? string.Empty;
+        var presenter = new LocationPresenter(Player.Location);
+        GameUI.Print(presenter.Describe());
+
+        var input = GameUI.Read();
 
         ICommand? command = CommandParser.Parse(input);
 

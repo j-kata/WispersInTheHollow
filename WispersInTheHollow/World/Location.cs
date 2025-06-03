@@ -1,3 +1,5 @@
+using WispersInTheHollow.World.Helpers;
+
 namespace WispersInTheHollow.World;
 
 internal class Location : IReadOnlyLocation

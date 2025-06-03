@@ -1,4 +1,4 @@
-namespace WispersInTheHollow.World;
+namespace WispersInTheHollow.World.Helpers;
 
 internal interface IReadOnlyLocation
 {
