@@ -11,12 +11,12 @@ internal class InspectCommand : ICommand
     ItemName = itemName;
   }
 
-  public bool Execute(Player player, out string message)
+  public string Execute(Player player)
   {
     Item? item = player.Inspect(ItemName);
-    var success = item != null;
-    message = success ? $"It is {item}" : "There is nothing to look at";
-
-    return success;
+    
+    return item != null
+      ? $"It is {item}"
+      : "There is nothing to look at";
   }
 }

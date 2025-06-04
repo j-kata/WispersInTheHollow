@@ -9,11 +9,11 @@ internal class MoveCommand : ICommand
     Direction = direction;
   }
 
-  public bool Execute(Player player, out string message)
+  public string Execute(Player player)
   {
-    var success = player.Move(Direction) != null;   
-    message = success ? $"You are moving {Direction}" : $"You can't move {Direction}";
-
-    return success;
+    var exit = player.Move(Direction);
+    return exit != null   
+      ? $"You are moving {Direction}" 
+      : $"You can't move {Direction}";
   }
 }

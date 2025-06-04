@@ -1,4 +1,5 @@
 using WispersInTheHollow.Helpers;
+using WispersInTheHollow.Command;
 using WispersInTheHollow.World;
 using WispersInTheHollow.World.Helpers;
 
@@ -37,8 +38,8 @@ namespace WispersInTheHollow
 
         if (command != null)
         {
-          command.Execute(Player, out string message);
-          Console.WriteLine(message);
+          var output = command.Execute(Player);
+          GameUI.Print(output);
         }
         else
         {
