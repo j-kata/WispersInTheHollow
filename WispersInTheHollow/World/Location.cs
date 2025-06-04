@@ -34,20 +34,13 @@ internal class Location : IReadOnlyLocation
     return Items;
   }
 
-  public IEnumerable<Item> HiddenItems()
+  public IEnumerable<Item> GetHiddenItems()
   {
     return Items.Where(item => !item.IsDiscovered);
   }
 
-  public Item? GetHiddenItem(string? itemName)
+  public IEnumerable<Item> GetVisibleItems()
   {
-    return itemName == null
-      ? HiddenItems().FirstOrDefault()
-      : HiddenItems().FirstOrDefault(item => item.Hint.Contains(itemName));
-  }
-
-  public IReadOnlyLocation? GetExit(string direction)
-  {
-    return _exits.TryGetValue(direction, out var location) ? location : null;
+    return Items.Where(item => item.IsDiscovered);
   }
 }

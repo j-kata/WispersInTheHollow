@@ -2,21 +2,18 @@ using WispersInTheHollow.World;
 
 namespace WispersInTheHollow.Command;
 
-internal class InspectCommand : ICommand
+internal class InspectCommand(string? itemName) : ICommand
 {
-  private string? ItemName { get; set; }
+    private string? ItemName { get; set; } = itemName;
 
-  public InspectCommand(string? itemName)
-  {
-    ItemName = itemName;
-  }
+    public string Execute(GameContext context)
+    {
+        Item? item = context.FindHiddenItem(ItemName);
 
-  public string Execute(Player player)
-  {
-    Item? item = player.Inspect(ItemName);
-    
-    return item != null
-      ? $"It is {item}"
-      : "There is nothing to look at";
-  }
+        if (item == null)
+            return "There is nothing to look at";
+        
+        item.IsDiscovered = true;
+        return $"It is {item}";
+    }
 }

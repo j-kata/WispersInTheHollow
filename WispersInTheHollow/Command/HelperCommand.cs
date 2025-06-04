@@ -4,7 +4,7 @@ namespace WispersInTheHollow.Command;
 
 internal class HelperCommand : ICommand
 {
-    public string Execute(Player player)
+    public string Execute(GameContext _context)
     {
         var builder = new StringBuilder();
         builder.AppendLine("You can interact by typing simple commands.");

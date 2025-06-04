@@ -6,9 +6,9 @@ internal interface IReadOnlyLocation
   public string Description { get; }
   public IReadOnlyList<Item> Items { get; }
   public IReadOnlyDictionary<string, IReadOnlyLocation> Exits { get; }
-  public IReadOnlyLocation? GetExit(string direction);
 
   public string[] AvailableDirections();
   public IEnumerable<Item> AvailableItems();
-  public Item? GetHiddenItem(string? itemName);
+  public IEnumerable<Item> GetHiddenItems();
+  public IEnumerable<Item> GetVisibleItems();
 }

@@ -7,7 +7,7 @@ namespace WispersInTheHollow
 {
   internal static class GameManager
   {
-    private static Player Player { get; set; }
+    private static GameContext Context { get; set; }
     private static bool IsGameOn { get; set; }
 
     public static void Start()
@@ -15,7 +15,9 @@ namespace WispersInTheHollow
       try
       {
         var startLocation = new WorldBuilder().StartLocation();
-        Player = new Player(startLocation);
+        var player = new Player(startLocation);
+        Context = new GameContext(player);
+
         IsGameOn = true;
       }
       catch (Exception ex)
@@ -29,13 +31,13 @@ namespace WispersInTheHollow
     {
       while (IsGameOn)
       {
-        var presenter = new LocationPresenter(Player.Location);
+        var presenter = new LocationPresenter(Context.CurrentLocation);
         GameUI.Print(presenter.Describe());
 
         var input = GameUI.Read();
 
         ICommand command = CommandParser.Parse(input);
-        var output = command.Execute(Player);
+        var output = command.Execute(Context);
         GameUI.Print(output);
 
         if (command is ExitCommand)

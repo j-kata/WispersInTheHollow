@@ -1,19 +1,17 @@
 namespace WispersInTheHollow.Command;
 
-internal class MoveCommand : ICommand
+internal class MoveCommand(string direction) : ICommand
 {
-  public string Direction { get; private set; }
+    public string Direction { get; private set; } = direction;
 
-  public MoveCommand(string direction)
-  {
-    Direction = direction;
-  }
+    public string Execute(GameContext context)
+    {
+        var exit = context.FindExit(Direction);
 
-  public string Execute(Player player)
-  {
-    var exit = player.Move(Direction);
-    return exit != null   
-      ? $"You are moving {Direction}" 
-      : $"You can't move {Direction}";
-  }
+        if (exit == null) return $"You can't move {Direction}";
+
+        context.Player.Location = exit;
+
+        return $"You are moving {Direction}";
+    }
 }

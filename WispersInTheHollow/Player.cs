@@ -5,31 +5,12 @@ namespace WispersInTheHollow
 {
   internal class Player
   {
-    public IReadOnlyLocation Location { get; private set; }
+    public IReadOnlyLocation Location { get; set; }
     private readonly List<Item> inventory = [];
 
     public Player(IReadOnlyLocation location)
     {
       Location = location;
-    }
-
-    public IReadOnlyLocation? Move(string direction)
-    {
-      var exit = Location.GetExit(direction);
-      if (exit != null)
-        Location = exit;
-
-      return exit;
-    }
-
-    public Item? Inspect(string? itemName)
-    {
-      var hiddenItem = Location.GetHiddenItem(itemName);
-
-      if (hiddenItem != null)
-        hiddenItem.IsDiscovered = true;
-
-      return hiddenItem;
     }
 
     public void PickUp(Item item)
