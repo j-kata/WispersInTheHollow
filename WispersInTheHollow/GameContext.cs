@@ -26,5 +26,9 @@ internal class GameContext(Player player)
            ? Player.Location.GetVisibleItems().FirstOrDefault()
            : Player.Location.GetVisibleItems().FirstOrDefault(item => item.Name.Contains(itemName, StringComparison.OrdinalIgnoreCase));
     }
-    
+
+    public Item? FindOwnItem(string itemName)
+    {
+        return Player.Inventory.FirstOrDefault(item => item.Name.Contains(itemName, StringComparison.OrdinalIgnoreCase));
+    } 
 }

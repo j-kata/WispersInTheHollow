@@ -15,6 +15,13 @@ internal class Inventory : IEnumerable<Item>
         _items.Add(item);
     }
 
+    public void RemoveItem(Item item)
+    {
+        ArgumentNullException.ThrowIfNull(item, nameof(item));
+
+        _items.Remove(item);
+    }
+
     public override string ToString()
     {
         return _items.Count == 0
