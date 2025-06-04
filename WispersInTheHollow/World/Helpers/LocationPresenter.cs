@@ -34,7 +34,7 @@ internal class LocationPresenter
 
   public string LocationItems()
   {
-    var items = _location.AvailableItems();
+    var items = _location.Items;
     return items.Any()
       ? $"You notice: {string.Join("\n", items.Select(i => i.ToString()))}"
       : String.Empty;

@@ -11,19 +11,15 @@ internal class Location(string name, string description)
     private readonly Dictionary<string, Location> _exits = [];
     public IReadOnlyDictionary<string, Location> Exits => _exits.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 
-    internal void AddItem(Item item) => _items.Add(item);
+    public void AddItem(Item item) => _items.Add(item);
+    public void RemoveItem(Item item) => _items.Remove(item);
 
-    internal void AddExit(string direction, Location exit) => _exits.Add(direction, exit);
+    public void AddExit(string direction, Location exit) => _exits.Add(direction, exit);
 
 
     public string[] AvailableDirections()
     {
         return [.. _exits.Keys];
-    }
-
-    public IEnumerable<Item> AvailableItems()
-    {
-        return Items;
     }
 
     public IEnumerable<Item> GetHiddenItems()

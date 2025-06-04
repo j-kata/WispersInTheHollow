@@ -13,7 +13,8 @@ internal static class CommandParser
         { "help", args => new HelperCommand() },
         { "exit", args => new ExitCommand() },
     };
-
+    // TODO: add aliases
+    
     public static ICommand Parse(string input)
     {
         var (command, arguments) = SplitInput(input);
