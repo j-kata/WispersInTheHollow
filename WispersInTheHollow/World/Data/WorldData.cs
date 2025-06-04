@@ -1,5 +1,3 @@
-using WispersInTheHollow;
-
 namespace WispersInTheHollow.World.Data;
 
 internal record WorldData(List<LocationData> Locations, List<ItemData> Items);

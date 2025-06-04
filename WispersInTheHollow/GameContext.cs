@@ -1,8 +1,8 @@
 using WispersInTheHollow.World;
-using WispersInTheHollow.World.Helpers;
 
 namespace WispersInTheHollow;
 
+// TODO: split into Lookup and State
 internal class GameContext(Player player)
 {
     public Player Player { get; } = player;
@@ -30,5 +30,5 @@ internal class GameContext(Player player)
     public Item? FindOwnItem(string itemName)
     {
         return Player.Inventory.FirstOrDefault(item => item.Name.Contains(itemName, StringComparison.OrdinalIgnoreCase));
-    } 
+    }
 }
