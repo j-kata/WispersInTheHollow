@@ -9,7 +9,8 @@ internal static class CommandParser
   {
     { "go", args => args.Length > 0 ? new MoveCommand(args[0]) : new InvalidCommand() },
     { "inspect", args => new InspectCommand(string.Join(" ", args)) },
-    { "help", args => new HelperCommand() }
+    { "help", args => new HelperCommand() },
+    { "exit", args => new ExitCommand() },
   };
   
   public static ICommand Parse(string input)
