@@ -15,6 +15,13 @@ internal class Inventory : IEnumerable<Item>
         _items.Add(item);
     }
 
+    public override string ToString()
+    {
+        return _items.Count == 0
+            ? "Inventory is empty."
+            : string.Join(", ", _items.Select(item => item.Name));
+    }
+
     public IEnumerator<Item> GetEnumerator() => _items.GetEnumerator();
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 }

@@ -11,10 +11,11 @@ internal static class CommandParser
         { "inspect", args => new InspectCommand(string.Join(" ", args)) },
         { "take", args => new PickupCommand(string.Join(" ", args)) },
         { "help", args => new HelperCommand() },
+        { "inventory", args => new InventoryCommand() },
         { "exit", args => new ExitCommand() },
     };
     // TODO: add aliases
-    
+
     public static ICommand Parse(string input)
     {
         var (command, arguments) = SplitInput(input);
