@@ -7,22 +7,26 @@ internal static class CommandParser
 {
   public static ICommand? Parse(string input)
   {
-    string[] data = input.SplitToLower(" ");
-    var command = data[0];
+    var (command, arguments) = SplitInput(input);
+    if (command == null) return new InvalidCommand();
 
     switch (command)
     {
       case "go":
-        var direction = data.Skip(1).Take(1).FirstOrDefault();
-        // if null return invalid command
-        return new MoveCommand(direction);
+        var direction = arguments.Take(1).FirstOrDefault();
+        return direction == null ? new InvalidCommand() : new MoveCommand(direction);
       case "look":
       case "search":
       case "inspect":
-        var itemName = data.Skip(1);
-        return new InspectCommand(string.Join(" ", itemName));
+        return new InspectCommand(string.Join(" ", arguments));
       default:
-        return null;
+        return new InvalidCommand();
     }
+  }
+
+  private static (string? command, IEnumerable<string> arguments) SplitInput(string input)
+  {
+    string[] data = input.SplitToLower(" ");
+    return (data.Take(1).FirstOrDefault(), data.Skip(1));
   }
 }
