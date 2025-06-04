@@ -19,6 +19,8 @@ internal static class CommandParser
       case "search":
       case "inspect":
         return new InspectCommand(string.Join(" ", arguments));
+      case "help":
+        return new HelperCommand();
       default:
         return new InvalidCommand();
     }
