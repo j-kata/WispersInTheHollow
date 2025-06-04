@@ -13,14 +13,23 @@ namespace WispersInTheHollow
       Location = location;
     }
 
-    public bool Move(string direction)
+    public IReadOnlyLocation? Move(string direction)
     {
       var exit = Location.GetExit(direction);
-      if (exit == null)
-        return false;
+      if (exit != null)
+        Location = exit;
 
-      Location = exit;
-      return true;
+      return exit;
+    }
+
+    public Item? Inspect(string? itemName)
+    {
+      var hiddenItem = Location.GetHiddenItem(itemName);
+
+      if (hiddenItem != null)
+        hiddenItem.IsDiscovered = true;
+
+      return hiddenItem;
     }
 
     public void PickUp(Item item)

@@ -2,8 +2,10 @@ namespace WispersInTheHollow.World;
 
 internal class Item
 {
+
   public string Name { get; private set; }
   public string Description { get; private set; }
+  public string RevealedName => $"{Name}. {Description}";
   public string Hint { get; private set; }
   public bool IsDiscovered { get; set; }
 
@@ -17,6 +19,7 @@ internal class Item
 
   public override string ToString()
   {
-    return IsDiscovered ? Name : Hint;
+    return IsDiscovered ? RevealedName : Hint;
   }
+
 }

@@ -39,12 +39,11 @@ internal class Location : IReadOnlyLocation
     return Items.Where(item => !item.IsDiscovered);
   }
 
-  public Item? Inspect(string itemName)
+  public Item? GetHiddenItem(string? itemName)
   {
-    var item = HiddenItems().FirstOrDefault(item => item.Hint.Contains(itemName));
-    if (item != null) item.IsDiscovered = true;
-
-    return item;
+    return itemName == null
+      ? HiddenItems().FirstOrDefault()
+      : HiddenItems().FirstOrDefault(item => item.Hint.Contains(itemName));
   }
 
   public IReadOnlyLocation? GetExit(string direction)

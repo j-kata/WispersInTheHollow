@@ -9,12 +9,6 @@ internal interface IReadOnlyLocation
   public IReadOnlyLocation? GetExit(string direction);
 
   public string[] AvailableDirections();
-
-
   public IEnumerable<Item> AvailableItems();
-
-  public IEnumerable<Item> HiddenItems();
-
-
-  public Item? Inspect(string name);
+  public Item? GetHiddenItem(string? itemName);
 }
