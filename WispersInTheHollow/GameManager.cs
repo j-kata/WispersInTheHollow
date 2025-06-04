@@ -34,17 +34,9 @@ namespace WispersInTheHollow
 
         var input = GameUI.Read();
 
-        ICommand? command = CommandParser.Parse(input);
-
-        if (command != null)
-        {
-          var output = command.Execute(Player);
-          GameUI.Print(output);
-        }
-        else
-        {
-          IsGameOn = false;
-        }
+        ICommand command = CommandParser.Parse(input);
+        var output = command.Execute(Player);
+        GameUI.Print(output);
       }
     }
   }

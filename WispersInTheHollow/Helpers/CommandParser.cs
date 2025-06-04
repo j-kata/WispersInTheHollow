@@ -5,7 +5,7 @@ namespace WispersInTheHollow.Helpers;
 
 internal static class CommandParser
 {
-  public static ICommand? Parse(string input)
+  public static ICommand Parse(string input)
   {
     var (command, arguments) = SplitInput(input);
     if (command == null) return new InvalidCommand();
