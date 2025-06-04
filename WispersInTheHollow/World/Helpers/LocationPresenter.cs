@@ -4,9 +4,9 @@ namespace WispersInTheHollow.World.Helpers;
 
 internal class LocationPresenter
 {
-  private readonly IReadOnlyLocation _location;
+  private readonly Location _location;
 
-  public LocationPresenter(IReadOnlyLocation location)
+  public LocationPresenter(Location location)
   {
     _location = location;
   }

@@ -6,7 +6,7 @@ namespace WispersInTheHollow;
 internal class GameContext(Player player)
 {
     public Player Player { get; } = player;
-    public IReadOnlyLocation CurrentLocation => Player.Location;
+    public Location CurrentLocation => Player.Location;
 
     public Item? FindHiddenItem(string? itemName)
     {
@@ -15,7 +15,7 @@ internal class GameContext(Player player)
             : Player.Location.GetHiddenItems().FirstOrDefault(item => item.Hint.Contains(itemName));
     }
 
-    public IReadOnlyLocation? FindExit(string direction)
+    public Location? FindExit(string direction)
     {
         return Player.Location.Exits.TryGetValue(direction, out var location) ? location : null;
     }
