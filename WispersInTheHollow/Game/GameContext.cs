@@ -1,6 +1,6 @@
 using WispersInTheHollow.World;
 
-namespace WispersInTheHollow.Context;
+namespace WispersInTheHollow.Game;
 
 
 internal class GameContext : IContext
@@ -8,7 +8,7 @@ internal class GameContext : IContext
     public Player Player { get; }
     public Location CurrentLocation => Player.Location;
 
-    public GameContext(WorldBuilder builder)
+    public GameContext(IWorldBuilder builder)
     {
         var startLocation = builder.StartLocation();
         Player = new Player(startLocation);

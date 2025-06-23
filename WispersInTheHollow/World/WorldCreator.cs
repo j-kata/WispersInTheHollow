@@ -5,7 +5,8 @@ namespace WispersInTheHollow.World;
 
 internal class WorldCreator
 {
-    private const string defaultFile = "World/Data/world.json";
+    private const string defaultFile = "Data/world.json";
+
     public static WorldData Generate(string filePath = defaultFile)
     {
         var json = LoadJson(filePath);

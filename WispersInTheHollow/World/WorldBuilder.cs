@@ -2,7 +2,7 @@ using WispersInTheHollow.World.Data;
 
 namespace WispersInTheHollow.World;
 
-internal class WorldBuilder
+internal class WorldBuilder : IWorldBuilder
 {
     private readonly Dictionary<string, Item> _items;
     private readonly Dictionary<string, Location> _locations;
