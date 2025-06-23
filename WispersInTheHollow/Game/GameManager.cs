@@ -1,5 +1,5 @@
 using WispersInTheHollow.UI;
-using WispersInTheHollow.Command;
+using WispersInTheHollow.Commands;
 using WispersInTheHollow.Helpers;
 using WispersInTheHollow.World;
 
@@ -30,7 +30,7 @@ internal class GameManager
             ICommand command = CommandParser.Parse(input);
             var output = command.Execute(_context);
 
-            _ui.FormattedPrint(output);
+            _ui.Print(output);
 
             if (command is ExitCommand)
                 IsGameOn = false;

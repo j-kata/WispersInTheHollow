@@ -2,7 +2,7 @@ namespace WispersInTheHollow.UI;
 
 internal class GameUI : IUI
 {
-    public void PrintPrefix(string prefix = "---> ")
+    public void PrintPrefix(string prefix = "> ")
     {
         Console.Write(prefix);
     }

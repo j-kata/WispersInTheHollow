@@ -1,6 +1,6 @@
 using WispersInTheHollow.Game;
 
-namespace WispersInTheHollow.Command;
+namespace WispersInTheHollow.Commands;
 
 internal class ExitCommand : ICommand
 {

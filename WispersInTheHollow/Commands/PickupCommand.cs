@@ -1,7 +1,7 @@
 using WispersInTheHollow.World;
 using WispersInTheHollow.Game;
 
-namespace WispersInTheHollow.Command;
+namespace WispersInTheHollow.Commands;
 
 internal class PickupCommand(string itemName) : ICommand
 {
@@ -13,8 +13,8 @@ internal class PickupCommand(string itemName) : ICommand
 
         if (item == null) return $"You can't pickup {ItemName}";
 
-        context.Player.Inventory.AddItem(item);
-        context.Player.Location.RemoveItem(item);
+        context.Inventory.AddItem(item);
+        context.CurrentLocation.RemoveItem(item);
 
         return $"You've picked up {item.Name}";
     }

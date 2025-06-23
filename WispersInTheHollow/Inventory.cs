@@ -26,7 +26,7 @@ internal class Inventory : IEnumerable<Item>
     {
         return _items.Count == 0
             ? "Inventory is empty."
-            : string.Join(", ", _items.Select(item => item.Name));
+            : string.Join("\n", _items.Select(item => $"- {item.Name}"));
     }
 
     public IEnumerator<Item> GetEnumerator() => _items.GetEnumerator();

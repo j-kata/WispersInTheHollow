@@ -1,7 +1,7 @@
 using WispersInTheHollow.World;
 using WispersInTheHollow.Game;
 
-namespace WispersInTheHollow.Command;
+namespace WispersInTheHollow.Commands;
 
 internal class InspectCommand(string? itemName) : ICommand
 {

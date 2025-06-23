@@ -1,6 +1,6 @@
 using WispersInTheHollow.Game;
 
-namespace WispersInTheHollow.Command;
+namespace WispersInTheHollow.Commands;
 
 internal class MoveCommand(string direction) : ICommand
 {
@@ -12,7 +12,7 @@ internal class MoveCommand(string direction) : ICommand
 
         if (exit == null) return $"You can't move {Direction}";
 
-        context.Player.Location = exit;
+        context.CurrentLocation = exit;
 
         return $"You are moving {Direction}";
     }

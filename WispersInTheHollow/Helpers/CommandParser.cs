@@ -1,4 +1,4 @@
-using WispersInTheHollow.Command;
+using WispersInTheHollow.Commands;
 using WispersInTheHollow.Extensions;
 
 namespace WispersInTheHollow.Helpers;

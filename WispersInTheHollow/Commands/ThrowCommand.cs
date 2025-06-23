@@ -1,7 +1,7 @@
 using WispersInTheHollow.World;
 using WispersInTheHollow.Game;
 
-namespace WispersInTheHollow.Command;
+namespace WispersInTheHollow.Commands;
 
 internal class ThrowCommand(string itemName) : ICommand
 {
@@ -13,8 +13,8 @@ internal class ThrowCommand(string itemName) : ICommand
 
         if (item == null) return $"You don't have {ItemName} to throw";
 
-        context.Player.Inventory.RemoveItem(item);
-        context.Player.Location.AddItem(item);
+        context.Inventory.RemoveItem(item);
+        context.CurrentLocation.AddItem(item);
 
         return $"You've trown {item.Name}";
     }
