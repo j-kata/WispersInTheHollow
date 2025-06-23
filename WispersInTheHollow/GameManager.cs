@@ -34,14 +34,17 @@ internal static class GameManager
             var presenter = new LocationPresenter(Context.CurrentLocation);
             GameUI.Print(presenter.Describe());
 
-            var input = GameUI.Read();
+            var input = GameUI.FormattedRead();
 
             ICommand command = CommandParser.Parse(input);
             var output = command.Execute(Context);
-            GameUI.Print(output);
+
+            GameUI.FormattedPrint(output);
 
             if (command is ExitCommand)
                 IsGameOn = false;
+
+            GameUI.Print();
         }
     }
 }
