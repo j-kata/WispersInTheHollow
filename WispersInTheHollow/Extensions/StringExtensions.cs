@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace WispersInTheHollow.Extensions;
 
 internal static class StringExtensions
@@ -6,5 +8,10 @@ internal static class StringExtensions
     {
         string[] split = str.Split(separator, StringSplitOptions.RemoveEmptyEntries);
         return [.. split.Select(s => s.ToLower())];
+    }
+
+    public static string RemoveEmptyLines(this string str)
+    {
+        return Regex.Replace(str, @"^\s*$[\r\n]*", string.Empty, RegexOptions.Multiline);
     }
 }

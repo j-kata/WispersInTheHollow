@@ -1,4 +1,5 @@
 using System.Text;
+using WispersInTheHollow.Extensions;
 
 namespace WispersInTheHollow.World.Helpers;
 
@@ -12,9 +13,9 @@ internal class LocationPresenter(Location location)
         builder.AppendLine(LocationSummary());
         builder.AppendLine(LocationExits());
         builder.AppendLine(LocationItems());
-        return builder.ToString();
+        return builder.ToString().RemoveEmptyLines();
     }
-    
+
     public string LocationSummary()
     {
         return $"== {_location.Name} ==\n{_location.Description}";
@@ -28,7 +29,7 @@ internal class LocationPresenter(Location location)
         : String.Empty;
     }
 
-    public string LocationItems()
+    public string? LocationItems()
     {
         var items = _location.Items;
         return items.Any()
