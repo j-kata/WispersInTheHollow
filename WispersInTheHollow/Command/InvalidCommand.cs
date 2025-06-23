@@ -1,8 +1,10 @@
+using WispersInTheHollow.Context;
+
 namespace WispersInTheHollow.Command;
 
 internal class InvalidCommand : ICommand
 {
-    public string Execute(GameContext _context)
+    public string Execute(IContext _context)
     {
         return "Unknown command";
     }

@@ -1,10 +1,12 @@
+using WispersInTheHollow.Context;
+
 namespace WispersInTheHollow.Command;
 
 internal class MoveCommand(string direction) : ICommand
 {
     public string Direction { get; private set; } = direction;
 
-    public string Execute(GameContext context)
+    public string Execute(IContext context)
     {
         var exit = context.FindExit(Direction);
 

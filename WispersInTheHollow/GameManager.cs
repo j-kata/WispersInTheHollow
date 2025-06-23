@@ -1,50 +1,62 @@
-using WispersInTheHollow.Helpers;
+using WispersInTheHollow.UI;
 using WispersInTheHollow.Command;
-using WispersInTheHollow.World;
 using WispersInTheHollow.World.Helpers;
+using WispersInTheHollow.Context;
+using WispersInTheHollow.Helpers;
 
 namespace WispersInTheHollow;
 
-internal static class GameManager
+internal class GameManager
 {
-    private static GameContext Context { get; set; }
-    private static bool IsGameOn { get; set; }
+    private readonly IContext _context;
+    private readonly IUI _ui;
+    private bool IsGameOn { get; set; } = true;
 
-    public static void Start()
+    public GameManager(IUI ui, IContext context)
     {
-        try
-        {
-            var startLocation = new WorldBuilder().StartLocation();
-            var player = new Player(startLocation);
-            Context = new GameContext(player);
-
-            IsGameOn = true;
-        }
-        catch (Exception ex)
-        {
-            GameUI.Print($"Failed to start the game: {ex.Message}");
-        }
-        GameLoop();
+        _ui = ui;
+        _context = context;
     }
 
-    private static void GameLoop()
+    public void Start()
     {
         while (IsGameOn)
         {
-            var presenter = new LocationPresenter(Context.CurrentLocation);
-            GameUI.Print(presenter.Describe());
+            var presenter = new LocationPresenter(_context.CurrentLocation);
+            _ui.Print(presenter.Describe());
 
-            var input = GameUI.FormattedRead();
+            var input = _ui.FormattedRead();
 
             ICommand command = CommandParser.Parse(input);
-            var output = command.Execute(Context);
+            var output = command.Execute(_context);
 
-            GameUI.FormattedPrint(output);
+            _ui.FormattedPrint(output);
 
             if (command is ExitCommand)
                 IsGameOn = false;
 
-            GameUI.Print();
+            _ui.Print();
+        }
+    }
+
+    private void GameLoop()
+    {
+        while (IsGameOn)
+        {
+            var presenter = new LocationPresenter(_context.CurrentLocation);
+            _ui.Print(presenter.Describe());
+
+            var input = _ui.FormattedRead();
+
+            ICommand command = CommandParser.Parse(input);
+            var output = command.Execute(_context);
+
+            _ui.FormattedPrint(output);
+
+            if (command is ExitCommand)
+                IsGameOn = false;
+
+            _ui.Print();
         }
     }
 }

@@ -1,12 +1,19 @@
 using WispersInTheHollow.World;
 
-namespace WispersInTheHollow;
+namespace WispersInTheHollow.Context;
 
-// TODO: split into Lookup and State
-internal class GameContext(Player player)
+
+internal class GameContext : IContext
 {
-    public Player Player { get; } = player;
+    public Player Player { get; }
     public Location CurrentLocation => Player.Location;
+
+    public GameContext(WorldBuilder builder)
+    {
+        var startLocation = builder.StartLocation();
+        Player = new Player(startLocation);
+    }
+
 
     public Item? FindHiddenItem(string? itemName)
     {

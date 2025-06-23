@@ -1,6 +1,8 @@
+using WispersInTheHollow.Context;
+
 namespace WispersInTheHollow.Command;
 
 internal interface ICommand
 {
-    string Execute(GameContext context);
+    string Execute(IContext context);
 }

@@ -1,4 +1,5 @@
 using WispersInTheHollow.World;
+using WispersInTheHollow.Context;
 
 namespace WispersInTheHollow.Command;
 
@@ -6,7 +7,7 @@ internal class PickupCommand(string itemName) : ICommand
 {
     private string? ItemName { get; set; } = itemName;
 
-    public string Execute(GameContext context)
+    public string Execute(IContext context)
     {
         Item? item = context.FindVisibleItem(ItemName);
 
