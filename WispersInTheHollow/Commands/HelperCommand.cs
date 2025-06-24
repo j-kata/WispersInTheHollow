@@ -1,4 +1,4 @@
-using WispersInTheHollow.Game;
+using WispersInTheHollow.Abstractions;
 using System.Text;
 
 namespace WispersInTheHollow.Commands;

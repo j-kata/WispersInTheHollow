@@ -1,5 +1,5 @@
 using WispersInTheHollow.World;
-using WispersInTheHollow.Game;
+using WispersInTheHollow.Abstractions;
 
 namespace WispersInTheHollow.Commands;
 

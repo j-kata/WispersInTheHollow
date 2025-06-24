@@ -1,7 +1,7 @@
 using WispersInTheHollow.World;
+using WispersInTheHollow.Abstractions;
 
 namespace WispersInTheHollow.Game;
-
 
 internal class GameContext : IContext
 {

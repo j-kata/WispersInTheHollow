@@ -1,4 +1,4 @@
-namespace WispersInTheHollow.UI;
+namespace WispersInTheHollow.Abstractions;
 
 internal interface IUI
 {

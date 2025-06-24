@@ -1,7 +1,6 @@
 using System.Collections;
-using WispersInTheHollow.World;
 
-namespace WispersInTheHollow;
+namespace WispersInTheHollow.World;
 
 internal class Inventory : IEnumerable<Item>
 {

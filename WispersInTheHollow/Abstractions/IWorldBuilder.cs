@@ -1,6 +1,6 @@
-using WispersInTheHollow.World.Data;
+using WispersInTheHollow.World;
 
-namespace WispersInTheHollow.World;
+namespace WispersInTheHollow.Abstractions;
 
 internal interface IWorldBuilder
 {

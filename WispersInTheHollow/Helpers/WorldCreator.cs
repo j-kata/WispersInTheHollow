@@ -1,7 +1,6 @@
 using System.Text.Json;
-using WispersInTheHollow.World.Data;
 
-namespace WispersInTheHollow.World;
+namespace WispersInTheHollow.Helpers;
 
 internal class WorldCreator
 {

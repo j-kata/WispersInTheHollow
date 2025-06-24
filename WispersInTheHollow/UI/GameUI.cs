@@ -1,3 +1,5 @@
+using WispersInTheHollow.Abstractions;
+
 namespace WispersInTheHollow.UI;
 
 internal class GameUI : IUI

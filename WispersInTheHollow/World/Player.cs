@@ -1,6 +1,4 @@
-using WispersInTheHollow.World;
-
-namespace WispersInTheHollow;
+namespace WispersInTheHollow.World;
 
 internal class Player(Location location)
 {

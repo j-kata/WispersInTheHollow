@@ -1,7 +1,6 @@
-using WispersInTheHollow.UI;
 using WispersInTheHollow.Commands;
+using WispersInTheHollow.Abstractions;
 using WispersInTheHollow.Helpers;
-using WispersInTheHollow.World;
 
 namespace WispersInTheHollow.Game;
 
@@ -22,8 +21,8 @@ internal class GameManager
 
         while (IsGameOn)
         {
-            var presenter = new LocationPresenter(_context.CurrentLocation);
-            _ui.Print(presenter.Describe());
+            // var presenter = new LocationPresenter(_context.CurrentLocation);
+            // _ui.Print(presenter.Describe());
 
             var input = _ui.FormattedRead();
 

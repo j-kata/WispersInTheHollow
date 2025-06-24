@@ -1,4 +1,4 @@
-using WispersInTheHollow.Game;
+using WispersInTheHollow.Abstractions;
 
 namespace WispersInTheHollow.Commands;
 
@@ -9,7 +9,6 @@ internal class MoveCommand(string direction) : ICommand
     public string Execute(IContext context)
     {
         var exit = context.FindExit(Direction);
-
         if (exit == null) return $"You can't move {Direction}";
 
         context.CurrentLocation = exit;

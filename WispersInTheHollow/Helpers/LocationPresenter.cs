@@ -1,7 +1,8 @@
 using System.Text;
 using WispersInTheHollow.Extensions;
+using WispersInTheHollow.World;
 
-namespace WispersInTheHollow.World;
+namespace WispersInTheHollow.Helpers;
 
 internal class LocationPresenter(Location location)
 {

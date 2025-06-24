@@ -1,6 +1,6 @@
 using WispersInTheHollow.Game;
 
-namespace WispersInTheHollow.Commands;
+namespace WispersInTheHollow.Abstractions;
 
 internal interface ICommand
 {

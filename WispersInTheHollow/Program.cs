@@ -1,6 +1,6 @@
 ﻿using WispersInTheHollow.UI;
 using WispersInTheHollow.Game;
-using WispersInTheHollow.World;
+using WispersInTheHollow.Helpers;
 
 namespace WispersInTheHollow;
 

@@ -1,6 +1,6 @@
 using WispersInTheHollow.World;
 
-namespace WispersInTheHollow.Game;
+namespace WispersInTheHollow.Abstractions;
 
 internal interface IContext
 {
