@@ -1,6 +1,8 @@
+using WispersInTheHollow.Abstractions;
+
 namespace WispersInTheHollow.World;
 
-internal class Item(string name, string desc, string hint)
+internal class Item(string name, string desc, string hint) : ILoggable
 {
     public string Name { get; private set; } = name;
     public string Description { get; private set; } = desc;

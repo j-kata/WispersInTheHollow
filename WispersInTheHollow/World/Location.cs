@@ -1,6 +1,8 @@
+using WispersInTheHollow.Abstractions;
+
 namespace WispersInTheHollow.World;
 
-internal class Location(string name, string description)
+internal class Location(string name, string description) : ILoggable
 {
     public string Name { get; private set; } = name;
     public string Description { get; private set; } = description;

@@ -3,15 +3,15 @@ using WispersInTheHollow.Abstractions;
 
 namespace WispersInTheHollow.Logger;
 
-internal class GameLog : ILog<LogEntry>
+internal class GameLog : ILog
 {
-    private readonly List<LogEntry> _entries = [];
+    private readonly List<ILoggable> _entries = [];
 
-    public void Add(LogEntry entry) => _entries.Add(entry);
+    public void LogState(ILoggable source) => _entries.Add(source);
 
     public bool HasVisitedLocation(Location location) =>
-        _entries.OfType<LogEntryMove>().Any(entry => entry.Location == location);
+        _entries.OfType<Location>().Any(entry => entry == location);
 
     public bool HasPickedUpItem(Item item) =>
-        _entries.OfType<LogEntryItem>().Any(entry => entry.Item == item);
+        _entries.OfType<Item>().Any(entry => entry == item);
 }
